@@ -4,7 +4,6 @@ import sqlite3
 
 
 def search_users_vulnerable(connection: sqlite3.Connection, name: str) -> list[tuple[int, str]]:
-    # INTENTIONAL VULNERABILITY: demonstrates SQL injection in a disposable fixture.
     query = f"SELECT id, name FROM users WHERE name = '{name}'"
     return connection.execute(query).fetchall()
 
