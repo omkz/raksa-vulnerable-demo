@@ -1,13 +1,8 @@
-"""Intentionally vulnerable teaching example. Never expose this app to a network."""
+"""Intentionally vulnerable teaching example. Never expose this app to a network or run it as a public service."""
 
 import sqlite3
 
 
-def search_users_vulnerable(connection: sqlite3.Connection, name: str) -> list[tuple[int, str]]:
+def search_users(connection: sqlite3.Connection, name: str) -> list[tuple[int, str]]:
     query = f"SELECT id, name FROM users WHERE name = '{name}'"
     return connection.execute(query).fetchall()
-
-
-def search_users_fixed(connection: sqlite3.Connection, name: str) -> list[tuple[int, str]]:
-    query = "SELECT id, name FROM users WHERE name = ?"
-    return connection.execute(query, (name,)).fetchall()
