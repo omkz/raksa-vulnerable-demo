@@ -4,5 +4,5 @@ import sqlite3
 
 
 def search_users(connection: sqlite3.Connection, name: str) -> list[tuple[int, str]]:
-    query = f"SELECT id, name FROM users WHERE name = '{name}'"
-    return connection.execute(query).fetchall()
+    query = "SELECT id, name FROM users WHERE name = ?"
+    return connection.execute(query, (name,)).fetchall()
