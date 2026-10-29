@@ -23,6 +23,8 @@ present **only** to test Raksa's OpenGrep scanner against real source text:
 | --- | --- | --- |
 | `src/unsafe_shell.py` | `raksa.python-shell-execution` | CWE-78 |
 | `src/unsafe_eval.js` | `raksa.javascript-dynamic-eval` | CWE-94 |
+| `src/unsafe_xss.js` | `raksa.javascript-html-injection` | CWE-79 |
+| `src/unsafe_path.py` | `raksa.python-request-file-access` | CWE-22 |
 
 These functions must **never be imported/called, executed, or deployed**.
 They do not run as part of the existing SQLite unit tests.
@@ -30,5 +32,5 @@ They do not run as part of the existing SQLite unit tests.
 To test via Raksa, enable OpenGrep in the Raksa scanner worker,
 select `omkz/raksa-vulnerable-demo` in the web dashboard, and run
 **Analyze repository**. Expected *potential* detections include these
-two findings plus the existing Python SQL injection example (CWE-89).
+four OpenGrep findings plus the existing Python SQL injection example (CWE-89).
 A finding is not proof of exploitability or a verified remediation.
