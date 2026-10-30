@@ -2,5 +2,5 @@
 // Expected Raksa OpenGrep rule: raksa.javascript-html-injection (CWE-79).
 
 export function renderUntrustedMessage(container, message) {
-  container.innerHTML = message;
+  container.textContent = message;
 }
